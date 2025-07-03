@@ -13,5 +13,7 @@ struct ConvertaApp: App {
         WindowGroup {
             ContentView()
         }
+        .windowStyle(DefaultWindowStyle())
+        .windowResizability(.contentSize)
     }
 }

@@ -1,3 +1,11 @@
+//
+//  FinderSync.swift
+//  Converta
+//
+//  Created by 陈铭勋 on 7/3/25.
+//
+
+
 // MARK: - FinderSync.swift (Finder Extension Target)
 import Cocoa
 import FinderSync
@@ -250,20 +258,20 @@ class FinderSync: FIFinderSync {
     
     // MARK: - Validation
     
-    override func requestBadgeIdentifier(for url: URL) {
-        // 可以在这里为正在转换的文件添加徽章
-        // 例如显示转换进度或状态
-    }
-    
-    override func valuesForBadgeIdentifier(_ badgeIdentifier: String) -> (NSImage?, String?) {
-        // 返回徽章图像和标签
-        switch badgeIdentifier {
-        case "converting":
-            return (NSImage(named: "ConvertingBadge"), "转换中")
-        case "completed":
-            return (NSImage(named: "CompletedBadge"), "已完成")
-        default:
-            return (nil, nil)
-        }
-    }
+//    override func requestBadgeIdentifier(for url: URL) {
+//        // 可以在这里为正在转换的文件添加徽章
+//        // 例如显示转换进度或状态
+//    }
+//    
+//    override func values(forBadgeIdentifier badgeIdentifier: String) -> (NSImage?, String?) {
+//        // 返回徽章图像和标签
+//        switch badgeIdentifier {
+//        case "converting":
+//            return (NSImage(named: "ConvertingBadge"), "转换中")
+//        case "completed":
+//            return (NSImage(named: "CompletedBadge"), "已完成")
+//        default:
+//            return (nil, nil)
+//        }
+//    }
 }

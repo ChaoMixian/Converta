@@ -1,3 +1,11 @@
+//
+//  ConversionView.swift
+//  Converta
+//
+//  Created by 陈铭勋 on 7/3/25.
+//
+
+
 // ConversionView.swift
 import SwiftUI
 
@@ -39,16 +47,16 @@ struct ConversionView: View {
                 .frame(maxWidth: 300)
             }
             
-            // 错误信息
-            if let error = viewModel.conversionError {
-                Text(error)
-                    .font(.caption)
-                    .foregroundColor(.red)
-                    .padding(.horizontal)
-                    .padding(.vertical, 8)
-                    .background(Color.red.opacity(0.1))
-                    .cornerRadius(6)
-            }
+//            // 错误信息
+//            if let error = viewModel.conversionError {
+//                Text(error)
+//                    .font(.caption)
+//                    .foregroundColor(.red)
+//                    .padding(.horizontal)
+//                    .padding(.vertical, 8)
+//                    .background(Color.red.opacity(0.1))
+//                    .cornerRadius(6)
+//            }
             
             // 转换按钮
             Button(action: {

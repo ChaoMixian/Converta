@@ -1,3 +1,11 @@
+//
+//  FileInfo.swift
+//  Converta
+//
+//  Created by 陈铭勋 on 7/3/25.
+//
+
+
 // FileInfo.swift - 增强版本
 import SwiftUI
 import UniformTypeIdentifiers

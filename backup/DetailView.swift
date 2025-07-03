@@ -1,3 +1,11 @@
+//
+//  DetailView.swift
+//  Converta
+//
+//  Created by 陈铭勋 on 7/3/25.
+//
+
+
 // MARK: - DetailView.swift
 import SwiftUI
 
@@ -9,12 +17,8 @@ struct DetailView: View {
             switch appState.selectedItem {
             case .home:
                 HomeView()
-            case .videoCompress:
-                VideoCompressView()
             case .videoConvert:
                 VideoConvertView()
-            case .imageCompress:
-                ImageCompressView()
             case .imageConvert:
                 ImageConvertView()
             case .audioConvert:

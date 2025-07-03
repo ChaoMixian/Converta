@@ -1,3 +1,11 @@
+//
+//  QuickAccessCard.swift
+//  Converta
+//
+//  Created by 陈铭勋 on 7/3/25.
+//
+
+
 // MARK: - Components/QuickAccessCard.swift
 import SwiftUI
 

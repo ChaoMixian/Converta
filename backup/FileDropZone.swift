@@ -1,46 +1,69 @@
-// MARK: - Components/UniversalDropZone.swift
+//
+//  FileDropZone.swift
+//  Converta
+//
+//  Created by 陈铭勋 on 7/3/25.
+//
+
+
+// MARK: - Components/FileDropZone.swift
 import SwiftUI
 import UniformTypeIdentifiers
 
-struct UniversalDropZone: View {
+struct FileDropZone: View {
+    let title: String
+    let acceptedTypes: [UTType]
     let onFilesDropped: ([URL]) -> Void
     
     @State private var isDragOver = false
     
     var body: some View {
         VStack(spacing: 20) {
-            Image(systemName: "square.and.arrow.down.on.square.fill")
+            Image(systemName: "plus.circle.dashed")
                 .font(.system(size: 48))
                 .foregroundColor(isDragOver ? .accentColor : .secondary)
             
             VStack(spacing: 8) {
-                Text("拖拽任意文件到此处")
+                Text(title)
                     .font(.headline)
                     .foregroundColor(isDragOver ? .accentColor : .primary)
                 
-                Text("支持视频、图片、音频、文档等多种格式")
+                Text("拖拽文件到此处或点击选择")
                     .font(.subheadline)
                     .foregroundColor(.secondary)
-                
-                Text("文件会自动进入相应的处理模块")
-                    .font(.caption)
-                    .foregroundColor(.secondary)
             }
+            
+            Button("选择文件") {
+                selectFiles()
+            }
+            .buttonStyle(.bordered)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(
-            RoundedRectangle(cornerRadius: 16)
+            RoundedRectangle(cornerRadius: 12)
                 .stroke(
                     isDragOver ? Color.accentColor : Color.secondary.opacity(0.3),
-                    style: StrokeStyle(lineWidth: 2, dash: [12, 6])
+                    style: StrokeStyle(lineWidth: 2, dash: [8])
                 )
                 .background(
-                    RoundedRectangle(cornerRadius: 16)
+                    RoundedRectangle(cornerRadius: 12)
                         .fill(isDragOver ? Color.accentColor.opacity(0.1) : Color.clear)
                 )
         )
-        .onDrop(of: [.fileURL], isTargeted: $isDragOver) { providers in
+        .onDrop(of: acceptedTypes, isTargeted: $isDragOver) { providers in
             handleDrop(providers: providers)
+        }
+    }
+    
+    private func selectFiles() {
+        let panel = NSOpenPanel()
+        panel.allowsMultipleSelection = true
+        panel.canChooseDirectories = false
+        panel.canChooseFiles = true
+        panel.allowedContentTypes = acceptedTypes
+        
+        if panel.runModal() == .OK {
+            onFilesDropped(panel.urls)
         }
     }
     
